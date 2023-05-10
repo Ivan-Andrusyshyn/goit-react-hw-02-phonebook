@@ -5,6 +5,7 @@ import { Filter } from "./components/search/search";
 import { nanoid } from "nanoid";
 import React, { Component } from "react";
 import css from "./app.module.css";
+
 class App extends Component {
   state = {
     contacts: [
@@ -40,10 +41,12 @@ class App extends Component {
   tryCreateonSubm = (newContact) => {
     const { contacts } = this.state;
     return contacts.filter(({ name }) => {
-      if (name === newContact.name) {
+      const arrName = name.toLowerCase();
+      const newNameCont = newContact.name.toLowerCase();
+      if (arrName === newNameCont) {
         alert(`${name} is already in contacts`);
       }
-      return name === newContact.name;
+      return arrName === newNameCont;
     });
   };
   onDeleteTodo = (id) => {

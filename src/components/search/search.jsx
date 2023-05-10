@@ -1,4 +1,5 @@
 import css from "./search.module.css";
+import PropTypes from "prop-types";
 
 const Filter = ({ searchFilter, filter }) => {
   return (
@@ -18,3 +19,7 @@ const Filter = ({ searchFilter, filter }) => {
   );
 };
 export { Filter };
+Filter.propTypes = {
+  searchFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
